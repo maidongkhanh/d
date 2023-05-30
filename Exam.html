@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>
+
+<title>
+
+Exam
+
+</title>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+
+var app = angular.module("Myapp", []);
+
+app.controller("filterctrl", function ($scope) {
+
+$scope.subjects = [{
+
+name: "ASP.NET",
+
+Author :"Nick Harrison",
+
+Description: "ASP.NET is an open-source, server-side web-application framework designed for web development to produce dynamic web pages. It was developed by Microsoft to allow programmers to build dynamic web sites, applications and services. The name stands for Active Server Pages Network Enabled Technologies.",
+
+
+}, {
+
+name: "Node.js",
+
+Author :"Emanuele",
+
+Description: "Node.js is a cross-platform, open-source server environment that can run on Windows, Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment, runs on the V8 JavaScript Engine, and executes JavaScript code outside a web browser." 
+
+} , {
+
+name: "React.js",
+
+Author :"Dmtri",
+
+Description: "React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta (formerly Facebook) and a community of individual developers and companies." 
+}, {
+
+name: "Typescript",
+
+Author :"Steve",
+
+Description: "TypeScript is a free and open-source high-level programming language developed by Microsoft that adds static typing with optional type annotations to JavaScript. It is designed for the development of large applications and transpiles to JavaScript. Because TypeScript is a superset of JavaScript, all JavaScript programs are syntactically valid TypeScript, but they can fail to type-check for safety reasons." 
+
+}];
+
+});
+
+</script>
+
+</head>
+
+<body ng-app="Myapp">
+
+<br> 
+
+<div ng-controller="filterctrl">
+
+<input ng-model="searchtxt.Description" type="text" placeholder="Enter text to search"><br /><br />
+
+<input ng-model="searchtxt.name" type="text" placeholder="Search by categories"><br /><br />
+
+<table class="table table-responsive" >
+
+<tr><th>Name</th><th>Author</th><Th>Description</Th></tr>
+
+<tr ng-repeat="subject in subjects | filter : searchtxt">
+
+<td>{{subject.name}} </td>
+
+<td>{{subject.Author}}</td>
+
+<td>{{subject.Description}}</td>
+
+<td><button type="button" class="btn btn-default">Read more</button></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</body>
+
+</html>
